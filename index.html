@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ED Physician Admitting Practices: An Infographic Summary</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Phosphor Icons for iconography -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles to enhance the design */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* A light, clean background color */
+        }
+        .card {
+            background-color: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .icon-bg {
+            background-color: #e0f2fe; /* Light blue background for icons */
+            border-radius: 9999px;
+            padding: 0.75rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .stat-number {
+            font-weight: 800;
+            color: #0c4a6e; /* A strong, dark blue for numbers */
+        }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #1e3a8a; /* Darker blue for titles */
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        /* Animation for cards on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <img src="https://iili.io/KGQOvkl.md.png" alt="WMEBEM Logo" class="mx-auto h-20 w-auto mb-6">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-3">The Admission Lottery?</h1>
+            <p class="text-lg text-slate-600 max-w-3xl mx-auto">
+                A summary of "Variation in Emergency Department Physician Admitting Practices and Subsequent Mortality" for UK Emergency Medicine Clinicians.
+            </p>
+        </header>
+
+        <!-- Main Question Card -->
+        <div class="card p-8 mb-12 fade-in-section">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="icon-bg text-sky-700">
+                    <i class="ph-bold ph-question text-5xl"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl font-bold mb-2">The Big Question</h2>
+                    <p class="text-slate-600 text-lg">
+                        ED physicians vary widely in their tendency to admit patients. But does a higher admission rate actually lead to better patient outcomes, specifically lower mortality?
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Study Details -->
+        <section class="mb-12 fade-in-section">
+             <h2 class="section-title">The Study at a Glance</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="card p-6">
+                    <div class="icon-bg mx-auto mb-3 text-sky-700"><i class="ph-bold ph-users-three text-3xl"></i></div>
+                    <p class="stat-number text-3xl">2,098</p>
+                    <p class="text-slate-500">Physicians</p>
+                </div>
+                <div class="card p-6">
+                    <div class="icon-bg mx-auto mb-3 text-sky-700"><i class="ph-bold ph-first-aid-kit text-3xl"></i></div>
+                    <p class="stat-number text-3xl">2.1 Million</p>
+                    <p class="text-slate-500">ED Visits</p>
+                </div>
+                 <div class="card p-6">
+                    <div class="icon-bg mx-auto mb-3 text-sky-700"><i class="ph-bold ph-heartbeat text-3xl"></i></div>
+                    <p class="stat-number text-3xl">3</p>
+                    <p class="text-slate-500">Common Complaints</p>
+                    <p class="text-xs text-slate-400 mt-1">(Chest Pain, SOB, Abdo Pain)</p>
+                </div>
+            </div>
+             <p class="text-center text-sm text-slate-500 mt-4 italic">Note: This study used data from the US Veterans Affairs (VA) health system.</p>
+        </section>
+
+        <!-- Key Findings Section -->
+        <section class="mb-12">
+            <h2 class="section-title">Key Findings</h2>
+            <div class="space-y-8">
+
+                <!-- Finding 1: Huge Variation -->
+                <div class="card p-8 fade-in-section">
+                    <div class="flex items-start gap-6">
+                        <div class="icon-bg text-sky-700 flex-shrink-0"><i class="ph-bold ph-chart-line-up text-3xl"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Finding 1: Massive Variation in Admission Rates</h3>
+                            <p class="text-slate-600 mb-6">Even within the same ED, there was a huge difference in physician admission propensity for the same chief complaint. This variation was not explained by differences in patient comorbidity scores.</p>
+                            <div class="bg-slate-50 p-4 rounded-lg max-w-md mx-auto h-72 relative">
+                                <p class="font-semibold text-center text-slate-700 mb-4">Example: Admission Rate for Chest Pain</p>
+                                <canvas id="admissionRateChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Finding 2: Higher Admissions = Shorter Stays -->
+                <div class="card p-8 fade-in-section">
+                    <div class="flex items-start gap-6">
+                        <div class="icon-bg text-sky-700 flex-shrink-0"><i class="ph-bold ph-bed text-3xl"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Finding 2: High Admitters Have More Short Stays</h3>
+                            <p class="text-slate-600 mb-4">Patients seen by physicians with higher admission rates were significantly more likely to have a short inpatient stay (<24 hours).</p>
+                            <div class="flex items-center gap-4 p-4 bg-slate-50 rounded-lg">
+                                <i class="ph-bold ph-timer text-4xl text-sky-600"></i>
+                                <p class="text-slate-700">For chest pain, patients of high-admitting physicians were <span class="stat-number text-2xl">~25%</span> more likely to be discharged in under 24 hours compared to those of low-admitters (31.0% vs 24.8%).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Finding 3: The Bottom Line -->
+                <div class="card p-8 bg-sky-800 text-white fade-in-section">
+                    <div class="flex items-start gap-6">
+                         <div class="bg-sky-600 p-3 rounded-full flex-shrink-0"><i class="ph-bold ph-crosshair text-3xl"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2 text-white">The Crucial Finding: No Mortality Benefit</h3>
+                            <p class="text-sky-200 text-lg">Treating patients with a physician who had a higher propensity to admit was <span class="font-bold text-white">not associated with any reduction</span> in 30-day mortality.</p>
+                             <p class="text-sky-200 mt-2">This held true for mortality at 7 days, 14 days, 90 days, and even 1 year.</p>
+                             <!-- New graph for outcomes -->
+                            <div class="mt-6 bg-sky-900/50 p-4 rounded-lg">
+                                <p class="font-semibold text-center text-sky-100 mb-2">30-Day Mortality Rate by Physician Admission Rate</p>
+                                <div class="h-80 relative">
+                                    <canvas id="mortalityRateChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Finding 4: A Matter of Style? -->
+                 <div class="card p-8 fade-in-section">
+                    <div class="flex items-start gap-6">
+                        <div class="icon-bg text-sky-700 flex-shrink-0"><i class="ph-bold ph-test-tube text-3xl"></i></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">Finding 4: It's a Matter of Practice Style</h3>
+                            <p class="text-slate-600">Physicians with higher admission rates also tended to order more diagnostic tests (both radiology and laboratory), suggesting a more intensive practice pattern overall.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Take Home Message -->
+        <section class="fade-in-section">
+             <h2 class="section-title">Take-Home Message</h2>
+            <div class="card p-8 bg-slate-800 text-white">
+                 <div class="flex flex-col md:flex-row items-center gap-8">
+                    <div class="bg-slate-700 p-3 rounded-full flex-shrink-0"><i class="ph-bold ph-lightbulb text-5xl text-amber-300"></i></div>
+                    <div>
+                        <p class="text-lg text-slate-300">
+                           This study suggests that a more cautious, higher-admission practice style doesn't necessarily translate to better survival outcomes for common ED presentations. It may, however, contribute to more short-stay admissions, which have implications for patient experience, hospital flow, and healthcare costs.
+                        </p>
+                         <p class="text-lg text-slate-300 mt-4">
+                           It's a powerful reminder to critically evaluate our individual admission thresholds and the value each admission provides.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center mt-12 py-6 border-t border-slate-200">
+            <p class="text-sm text-slate-500">Infographic based on: Coussens, S., & Ly, D. P. (2025). Variation in Emergency Department Physician Admitting Practices and Subsequent Mortality. <em class="italic">JAMA Internal Medicine, 185</em>(2), 153-160.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        // JavaScript for Chart.js Bar Chart
+        const ctx = document.getElementById('admissionRateChart');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['10th Percentile Physician', '90th Percentile Physician'],
+                datasets: [{
+                    label: 'Admission Rate (%) for Chest Pain',
+                    data: [32.6, 56.6],
+                    backgroundColor: [
+                        'rgba(56, 189, 248, 0.6)', // light sky blue
+                        'rgba(12, 74, 110, 0.6)'  // dark sky blue
+                    ],
+                    borderColor: [
+                        'rgb(56, 189, 248)',
+                        'rgb(12, 74, 110)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `Admission Rate: ${context.raw}%`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Admission Rate (%)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // New Javascript for the mortality outcomes chart
+        const mortalityCtx = document.getElementById('mortalityRateChart');
+        new Chart(mortalityCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Chest Pain', 'Abdominal Pain', 'Shortness of Breath'],
+                datasets: [
+                    {
+                        label: '10th Percentile Physician',
+                        data: [1.3, 1.7, 4.2],
+                        backgroundColor: 'rgba(56, 189, 248, 0.6)', // light sky blue
+                        borderColor: 'rgb(56, 189, 248)',
+                        borderWidth: 2
+                    },
+                    {
+                        label: '90th Percentile Physician',
+                        data: [1.29, 1.7, 4.21],
+                        backgroundColor: 'rgba(250, 204, 21, 0.6)', // yellow
+                        borderColor: 'rgb(250, 204, 21)',
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'white'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + '%';
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '30-Day Mortality Rate (%)',
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    },
+                    x: {
+                         title: {
+                            display: false,
+                            text: 'Chief Complaint',
+                            color: 'white'
+                        },
+                        ticks: {
+                            color: 'white'
+                        },
+                        grid: {
+                            color: 'rgba(255, 255, 255, 0.2)'
+                        }
+                    }
+                }
+            }
+        });
+
+
+        // JavaScript for fade-in animations on scroll
+        const sections = document.querySelectorAll('.fade-in-section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // Optional: unobserve after it becomes visible
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
+
+
